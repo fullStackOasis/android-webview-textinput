@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,7 +15,10 @@ public class MainActivity extends AppCompatActivity {
         Context applicationContext = this.getApplicationContext();
         WebView myWebView = new WebView(applicationContext);
         setContentView(myWebView);
-        myWebView.loadUrl("https://www.example.com");
-        //setContentView(R.layout.activity_main);
+        myWebView.loadUrl("https://www.google.com");
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        myWebView.requestFocus();
+        myWebView.getSettings().setLightTouchEnabled(true);
     }
 }
